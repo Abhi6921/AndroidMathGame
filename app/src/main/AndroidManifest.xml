@@ -8,8 +8,16 @@
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/Theme.AndroidMathGame">
-        <activity android:name=".MainActivity">
+            >
+        <activity android:name=".GameActivity"
+                  android:exported="true"
+                  android:parentActivityName=".MainActivity"
+                  android:label="Addition"
+                  android:theme="@style/Theme.GamePage">
+        </activity>
+        <activity android:name=".MainActivity"
+                  android:exported="true"
+                  android:theme="@style/Theme.AndroidMathGame"  >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
