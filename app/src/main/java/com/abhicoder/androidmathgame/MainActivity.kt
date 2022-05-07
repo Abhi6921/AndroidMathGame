@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("Subtract", "-")
             startActivity(intent)
         }
-
+        //vskvnsknvskvn
         multiplicationButton.setOnClickListener {
             val intent = Intent(this@MainActivity, GameActivity::class.java)
             intent.putExtra("Multiply", "*")
