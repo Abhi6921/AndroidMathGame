@@ -105,7 +105,6 @@ class GameActivity : AppCompatActivity() {
             textQuestion.text = "$number1 + $number2"
             correctAnswer = number1 + number2
         }
-        // sdjvjdsnvkjds
         if (subtract == "-") {
             textQuestion.text = "$number1 - $number2"
             correctAnswer = number1 - number2
