@@ -30,7 +30,7 @@ class GameActivity : AppCompatActivity() {
 
     // timer
     lateinit var timer : CountDownTimer
-    private val startTimerInMills : Long = 20000
+    private val startTimerInMills : Long = 60000
     var timeLeftInMillis : Long = startTimerInMills
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -93,12 +93,27 @@ class GameActivity : AppCompatActivity() {
 
     fun gameContineue() {
         // get random numbers
-        val number1: Int = Random.nextInt(0, 100)
-        val number2: Int = Random.nextInt(0, 100)
+        val number1: Int = Random.nextInt(0, 10)
+        val number2: Int = Random.nextInt(0, 10)
 
-        // write numbers on textview
-        textQuestion.text = "$number1 + $number2"
-        correctAnswer = number1 + number2
+        val add: String = getIntent().getStringExtra("Add").toString()
+        val subtract: String = getIntent().getStringExtra("Subtract").toString()
+        val multiply: String = getIntent().getStringExtra("Multiply").toString()
+
+        if (add == "+") {
+            // write numbers on textview
+            textQuestion.text = "$number1 + $number2"
+            correctAnswer = number1 + number2
+        }
+        if (subtract == "-") {
+            textQuestion.text = "$number1 - $number2"
+            correctAnswer = number1 - number2
+        }
+
+        if (multiply == "*") {
+            textQuestion.text = "$number1 * $number2"
+            correctAnswer = number1 * number2
+        }
 
         startTimer()
     }
