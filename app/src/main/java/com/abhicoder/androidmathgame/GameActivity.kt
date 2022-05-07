@@ -104,18 +104,23 @@ class GameActivity : AppCompatActivity() {
             // write numbers on textview
             textQuestion.text = "$number1 + $number2"
             correctAnswer = number1 + number2
+            startTimer()
         }
         if (subtract == "-") {
             textQuestion.text = "$number1 - $number2"
             correctAnswer = number1 - number2
+            startTimer()
         }
 
         if (multiply == "*") {
             textQuestion.text = "$number1 * $number2"
             correctAnswer = number1 * number2
+            startTimer()
         }
 
-        startTimer()
+
+
+
     }
 
     fun startTimer() {
