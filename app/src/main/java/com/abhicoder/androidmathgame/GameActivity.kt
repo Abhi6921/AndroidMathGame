@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import org.w3c.dom.Text
+import java.util.*
 import kotlin.random.Random
 
 class GameActivity : AppCompatActivity() {
@@ -28,7 +29,7 @@ class GameActivity : AppCompatActivity() {
 
     // timer
     lateinit var timer : CountDownTimer
-    private val startTimerInMills : Long = 60000
+    private val startTimerInMills : Long = 20000
     var timeLeftInMillis : Long = startTimerInMills
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +53,7 @@ class GameActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Please write an answer or click on next", Toast.LENGTH_LONG).show()
             }
             else {
+                pauseTimer()
                 val userAnswer = answer.toInt()
                 // check if user ans is correct
 
@@ -70,6 +72,8 @@ class GameActivity : AppCompatActivity() {
         }
 
         buttonNext.setOnClickListener {
+            pauseTimer()
+            resetTimer()
             gameContineue()
             textAnswer.setText("")
         }
@@ -83,24 +87,26 @@ class GameActivity : AppCompatActivity() {
         // write numbers on textview
         textQuestion.text = "$number1 + $number2"
         correctAnswer = number1 + number2
+
+        startTimer()
     }
 
     fun startTimer() {
 
         timer = object : CountDownTimer(timeLeftInMillis, 1000) {
 
-            //
+            
             override fun onTick(millisUntilFinished: Long) {
                 timeLeftInMillis = millisUntilFinished
-                //updateText()
+                updateText()
             }
 
             override fun onFinish() {
-                //pauseTimer()
+                pauseTimer()
                 // reset timer when finished
-                //resetTimer()
+                resetTimer()
                 // update time when finished
-                //updateText()
+                updateText()
 
                 userLife -= 1
 
@@ -114,7 +120,17 @@ class GameActivity : AppCompatActivity() {
     }
 
     fun updateText() {
+        val remainingTime : Int = (timeLeftInMillis / 1000).toInt()
+        textTime.text = String.format(Locale.getDefault(), "%2d", remainingTime)
+    }
 
+    fun pauseTimer() {
+        timer.cancel()
+    }
+
+    fun resetTimer() {
+        timeLeftInMillis = startTimerInMills;
+        updateText()
     }
 
 }
