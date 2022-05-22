@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var additionButton : Button
     lateinit var subtractionButton : Button
     lateinit var multiplicationButton: Button
+    lateinit var divisionButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         additionButton = findViewById(R.id.btnAdd)
         subtractionButton = findViewById(R.id.btnSubtract)
         multiplicationButton = findViewById(R.id.btnMultiply)
+        divisionButton = findViewById(R.id.btnDivision)
 
 
         additionButton.setOnClickListener {
@@ -38,6 +40,14 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("Multiply", "*")
             startActivity(intent)
         }
+
+        divisionButton.setOnClickListener {
+            val intent = Intent(this@MainActivity, GameActivity::class.java)
+            intent.putExtra("Divide", "/")
+            startActivity(intent)
+        }
+
+
     }
 
 

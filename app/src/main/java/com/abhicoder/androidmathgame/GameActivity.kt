@@ -1,14 +1,13 @@
 package com.abhicoder.androidmathgame
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import org.w3c.dom.Text
+import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 import kotlin.random.Random
 
@@ -99,6 +98,7 @@ class GameActivity : AppCompatActivity() {
         val add: String = getIntent().getStringExtra("Add").toString()
         val subtract: String = getIntent().getStringExtra("Subtract").toString()
         val multiply: String = getIntent().getStringExtra("Multiply").toString()
+        val divide: String = getIntent().getStringExtra("Divide").toString()
 
         if (add == "+") {
             // write numbers on textview
@@ -118,9 +118,33 @@ class GameActivity : AppCompatActivity() {
             startTimer()
         }
 
+        if(divide == "/") {
 
+            val first = (Math.random() * 100 + 1).toInt()
+            val firstNumDivisors = getDivisors(first)
 
+            val divisorsRandIndex = (Math.random() * firstNumDivisors!!.size).toInt()
+            val second = firstNumDivisors!![divisorsRandIndex]
+            var question : String? = null
 
+            if (first % second == 0 && first > second) {
+                question = "$first / $second"
+                textQuestion.setText(question)
+                correctAnswer = (first / second).toInt();
+            }
+             if (second % first == 0 && second > first) {
+                question = "$second / $first"
+                textQuestion.setText(question)
+                correctAnswer = (second / first).toInt();
+            }
+        }
+
+    }
+
+    private fun getDivisors(number: Int): List<Int>? {
+        val divisors: MutableList<Int> = ArrayList()
+        for (i in 1..number) if (number % i == 0) divisors.add(i)
+        return divisors
     }
 
     fun startTimer() {
