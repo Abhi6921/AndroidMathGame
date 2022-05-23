@@ -27,7 +27,7 @@
                 android:id="@+id/txtevenOddScore"
                 android:layout_weight="1"
                 android:textSize="20dp"
-                />
+                android:textColor="@color/purple_700"/>
         <TextView
                 android:text="Lives:"
                 android:layout_width="wrap_content"
@@ -61,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textViewNumber"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="70dp"
             android:gravity="center"
             android:textSize="50dp"
             android:textColor="@color/purple_700"
@@ -70,7 +70,7 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="80dp">
         <RadioButton
                 android:text="Even"
                 android:layout_width="wrap_content"
@@ -95,7 +95,9 @@
             android:layout_height="70dp"
             android:id="@+id/btnSubmit"
             android:layout_margin="50dp"
-            android:background="@drawable/button_shape"
             android:backgroundTint="@null"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="70dp"
+    />
 </LinearLayout>
