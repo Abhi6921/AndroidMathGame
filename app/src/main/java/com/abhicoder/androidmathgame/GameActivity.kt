@@ -46,11 +46,13 @@ class GameActivity : AppCompatActivity() {
         buttonNext = findViewById(R.id.btnNext)
 
         gameContineue()
+        buttonNext.setEnabled(false)
 
         buttonOK.setOnClickListener {
             val answer = textAnswer.text.toString()
             if (answer == "") {
                 Toast.makeText(applicationContext, "Please write an answer or click on next", Toast.LENGTH_LONG).show()
+                buttonNext.setEnabled(false);
             }
             else {
                 pauseTimer()
@@ -61,13 +63,15 @@ class GameActivity : AppCompatActivity() {
                     userScore += 10
                     textQuestion.text = "Correct!, :)"
                     textScore.text = userScore.toString()
+                    buttonNext.setEnabled(true)
                 }
                 else {
                     userLife -= 1
                     textQuestion.text = "Wrong answer! :("
                     textLife.text = userLife.toString()
-
+                    buttonNext.setEnabled(true)
                 }
+
             }
         }
 
@@ -86,6 +90,7 @@ class GameActivity : AppCompatActivity() {
             }
             else {
                 gameContineue()
+                buttonNext.setEnabled(false);
             }
         }
     }

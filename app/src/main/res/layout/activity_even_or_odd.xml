@@ -73,26 +73,28 @@
             android:layout_marginTop="50dp">
 
         <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/RGroupEvenOdd">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/RGroupEvenOdd"
+
+                android:orientation="horizontal">
             <RadioButton
-                    android:text="Even"
+                    android:text="It's Even"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/radioButtonEven"
                     android:layout_weight="1"
                     android:textColor="@color/purple_700"
-                    android:textSize="22dp"/>
+                    android:textSize="22dp" android:layout_marginLeft="20dp" android:layout_marginStart="20dp"/>
             <RadioButton
-                    android:text="Odd"
+                    android:text="It's Odd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/radioButtonOdd"
                     android:layout_weight="1"
                     android:textColor="@color/purple_700"
                     android:textSize="22dp"
-            />
+                    android:layout_marginLeft="130dp" android:layout_marginStart="130dp"/>
         </RadioGroup>
     </LinearLayout>
     <LinearLayout

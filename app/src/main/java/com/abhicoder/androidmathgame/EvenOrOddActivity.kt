@@ -29,6 +29,8 @@ class EvenOrOddActivity : AppCompatActivity() {
         buttonSubmit = findViewById(R.id.btnSubmit)
         buttonNext = findViewById(R.id.btnForward)
 
+        var userLife : Int = 3
+
         var randomNumber = Random.nextInt(0, 20)
         evenOddNumber.text = randomNumber.toString()
         buttonNext.setEnabled(false)
@@ -41,6 +43,7 @@ class EvenOrOddActivity : AppCompatActivity() {
                 }
                 else if(oddRadioButton.isChecked()) {
                     evenOddNumber.setText("InCorrect :(")
+                    userLife -= 1
                 }
                 buttonNext.setEnabled(true)
             }
@@ -50,6 +53,7 @@ class EvenOrOddActivity : AppCompatActivity() {
                 }
                 else if(evenRadioButton.isChecked()) {
                     evenOddNumber.setText("InCorrect :(")
+                    userLife -= 1;
                 }
                 buttonNext.setEnabled(true)
             }
